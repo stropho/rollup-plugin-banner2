@@ -1,0 +1,21 @@
+{
+  "env": {
+    "production": {
+      "presets": [
+        ["@babel/preset-env", {
+         "modules": "false"
+        }]
+      ],
+    },
+    "test": {
+      "presets": [
+        ["@babel/preset-env", {
+          "modules": "commonjs" // commonjs for jest test ...
+        }],
+      ],
+      "plugins": [
+        ["@babel/plugin-transform-runtime", { "regenerator": true }],
+      ],
+    }
+  }
+}

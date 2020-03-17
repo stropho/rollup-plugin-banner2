@@ -1,6 +1,7 @@
 {
   "name": "rollup-plugin-banner2",
-  "private": true,
+  "main": "dist/rollup-plugin-banner2.cjs.js",
+  "module": "dist/rollup-plugin-banner2.es.js",
   "engines": {
     "node": "^12.14.0",
     "npm": "^6.13.4"
@@ -8,6 +9,7 @@
   "version": "0.0.0",
   "description": "Rollup plugin to add banner in built files",
   "scripts": {
+    "build": "rollup -c=rollup.config.js",
     "test:lint": "kacl lint && eslint src/ test/",
     "test:unit": "jest",
     "test:tdd": "npm run test:unit -- --no-cache --watch",
@@ -32,7 +34,9 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.1",
     "jest": "^25.1.0",
-    "magic-string": "^0.25.7",
     "rollup": "^2.0.6"
+  },
+  "dependencies": {
+    "magic-string": "^0.25.7"
   }
 }

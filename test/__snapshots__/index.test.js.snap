@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`output multi entry point dynamic banner 1`] = `
+"// first banner
+export { f as foo } from './input-single.js';
+
+const first = 'first';
+
+export { first };
+"
+`;
+
+exports[`output multi entry point dynamic banner 2`] = `
+"// second banner
+export { f as foo } from './input-single.js';
+
+const second = 'second';
+
+export { second };
+"
+`;
+
+exports[`output multi entry point static banner 1`] = `
+"// banner
+export { f as foo } from './input-single.js';
+
+const first = 'first';
+
+export { first };
+"
+`;
+
+exports[`output multi entry point static banner 2`] = `
+"// banner
+export { f as foo } from './input-single.js';
+
+const second = 'second';
+
+export { second };
+"
+`;
+
+exports[`output single entry point static banner 1`] = `
+"// banner
+const foo = 'foo';
+
+export { foo };
+"
+`;

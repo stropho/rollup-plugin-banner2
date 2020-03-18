@@ -31,6 +31,26 @@ describe('warnings', () => {
     expect(output[0].map).toBeTruthy()
     expect(output[0].map.mappings).toBeTruthy()
   })
+  test('sourcemap not generated when explicitly set', async () => {
+    const onwarnSpy = jest.fn()
+    const inputOptions = {
+      onwarn: onwarnSpy,
+      input: path.resolve(__dirname, './fixture/input-single.js'),
+      plugins: [
+        banner2(() => '// banner\n', { sourcemap: false }),
+      ],
+    }
+    const outputOptions = {
+      ...OUTPUT_OPTIONS,
+      sourcemap: true,
+    }
+
+    const bundle = await rollup(inputOptions)
+    const { output } = await bundle.generate(outputOptions)
+
+    expect(output.length).toBe(1)
+    expect(onwarnSpy).toHaveBeenCalledTimes(1)
+  })
 })
 
 describe('output', () => {

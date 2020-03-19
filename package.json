@@ -8,12 +8,16 @@
   },
   "version": "1.0.0",
   "description": "Rollup plugin to add banner in built files",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "rollup -c=rollup.config.js",
     "test:lint": "kacl lint && eslint src/ test/",
     "test:unit": "jest",
     "test:tdd": "npm run test:unit -- --no-cache --watch",
     "test": "npm run test:lint && npm run test:unit",
+    "prepare": "npm run build",
     "preversion": "kacl prerelease",
     "version": "kacl release && git add CHANGELOG.md"
   },

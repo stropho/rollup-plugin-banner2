@@ -51,6 +51,27 @@ describe('warnings', () => {
     expect(output.length).toBe(1)
     expect(onwarnSpy).toHaveBeenCalledTimes(1)
   })
+
+  test('banner as stringifiable object', async () => {
+    const onwarnSpy = jest.fn()
+    const inputOptions = {
+      onwarn: onwarnSpy,
+      input: path.resolve(__dirname, './fixture/input-single.js'),
+      plugins: [
+        banner2(() => Buffer.from('// banner\n')),
+      ],
+    }
+    const outputOptions = {
+      ...OUTPUT_OPTIONS,
+      sourcemap: true,
+    }
+
+    const bundle = await rollup(inputOptions)
+    const { output } = await bundle.generate(outputOptions)
+
+    expect(output.length).toBe(1)
+    expect(onwarnSpy).toHaveBeenCalledTimes(0)
+  })
 })
 
 describe('output', () => {

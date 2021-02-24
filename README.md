@@ -50,7 +50,10 @@ The missing features could be added if someone actually needs them.
 ```ts
 banner2(resolveBanner, options)
 ```
-The `resolveBanner` function returns a banner as `string`,
-or possibly a `Promise` resolving a `string`
+The `resolveBanner` function returns a banner as
+- `string`
+- stringifiable object, i.e. having `toString` method, such as `Buffer`
+- any falsy value for an empty banner
+- a `Promise` resolving any of the values mentioned above
 
 For more details see the [typescript definition](index.d.ts)

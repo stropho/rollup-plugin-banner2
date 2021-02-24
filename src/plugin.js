@@ -14,7 +14,7 @@ export default function banner2(resolveBanner, userOptions) {
       if (!opts.sourcemap) return banner + code
 
       const magicString = new MagicString(code)
-      magicString.prepend(banner)
+      magicString.prepend(String(banner))
 
       return {
         code: magicString.toString(),

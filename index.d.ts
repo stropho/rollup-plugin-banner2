@@ -2,15 +2,19 @@ import * as rollup from 'rollup';
 
 type Falsy = false | 0 | "" | null | undefined
 
+type Stringifiable = {toString: () => string}
+
 /**
- * The resolveBanner function returns a banner as string,
- * or possibly a Promise resolving a string
- * For no banner, empty string or any other falsy value is acceptable
+ * The `resolveBanner` function returns a banner as
+ * - `string`
+ * - stringifiable object, i.e. having `toString` method, such as `Buffer`
+ * - any falsy value for an empty banner
+ * - a `Promise` resolving any of the values mentioned above
  */
 type ResolveBanner = (
   chunk: rollup.RenderedChunk,
   options: rollup.OutputOptions,
-) =>  string| Falsy | Promise<string|Falsy>
+) =>  string| Falsy | Stringifiable | Promise<string|Falsy|Stringifiable>
 
 type Options = {
   sourcemap?: boolean,

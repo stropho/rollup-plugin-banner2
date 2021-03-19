@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Removed
+- `npm` version from `engines` field in package.json. At this moment, there isn't any specific case why a specific subset of `npm` versions is needed
 
 ## [1.2.1] - 2021-02-24
 ### Added

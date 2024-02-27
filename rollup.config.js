@@ -1,4 +1,4 @@
-import pkg from './package.json'
+import pkg from './package.json' with { type: "json" };
 
 export default [
 
@@ -9,7 +9,6 @@ export default [
       { file: pkg.main, format: 'cjs' },
       { file: pkg.module, format: 'esm' },
     ],
-    plugins: [
-    ],
+    plugins: [],
   },
 ]

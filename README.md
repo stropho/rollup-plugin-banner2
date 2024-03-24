@@ -57,3 +57,10 @@ The `resolveBanner` function returns a banner as
 - a `Promise` resolving any of the values mentioned above
 
 For more details see the [typescript definition](index.d.ts)
+
+## Contributing
+
+ - new PRs accepted :-)
+ - always cover your changes by tests
+ - always mention your changes in the [CHANGELOG.md](CHANGELOG.md)
+ - always update [typescript definition](index.d.ts) file when relevant to your changes

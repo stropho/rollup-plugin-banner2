@@ -3,7 +3,7 @@
   "main": "dist/rollup-plugin-banner2.cjs.js",
   "module": "dist/rollup-plugin-banner2.es.js",
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=12.13"
   },
   "version": "1.2.2",
   "description": "Rollup plugin to add banner in built files",

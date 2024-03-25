@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 **Contributing** section in README
 
+### Security
+- update devDependencies and resolve security vulnerabilities
+
 ## [1.2.2] - 2021-03-19
 ### Removed
 - `npm` version from `engines` field in package.json. At this moment, there isn't any specific case why a specific subset of `npm` versions is needed

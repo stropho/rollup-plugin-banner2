@@ -1,0 +1,22 @@
+name: Release package
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: 'Release type (one of): patch, minor, major'
+        required: true
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          registry-url: https://registry.npmjs.org/
+          node-version: '20'
+      - run: npm ci
+      - run: npm run build
+      - run: npm version ${{ github.event.inputs.release-type }}
+      - run: git log -2
+      - run: git diff HEAD^^ | cat

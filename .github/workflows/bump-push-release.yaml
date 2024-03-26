@@ -5,6 +5,12 @@ on:
       release-type:
         description: 'Release type (one of): patch, minor, major'
         required: true
+    branches: [ master ]
+
+env:
+  TARGET_BRANCH: test-trunk # TODO: master
+  VERSION_BUMP: ${{ github.event.inputs.release-type }}
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -23,6 +29,10 @@ jobs:
           git config --global user.email "github-action@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
 
-      - run: npm version ${{ github.event.inputs.release-type }}
+      - run: npm version "$VERSION_BUMP"
       - run: git log -2
-      - run: git diff HEAD^^ | cat
+      - name: Push changes to remote branch "$TARGET_BRANCH"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: git push --tags origin HEAD:"$TARGET_BRANCH"
+      - run: npm pack --dry-run

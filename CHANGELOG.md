@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - **Contributing** section in README
-- MIT `LICENSE`` file
+- MIT `LICENSE` file
 
 ### Security
 - update devDependencies and resolve security vulnerabilities

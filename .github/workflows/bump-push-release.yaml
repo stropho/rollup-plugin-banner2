@@ -43,3 +43,5 @@ jobs:
         # push tags, and HEAD to the tracked remote branch (=push the branch) 
         run: git push --tags origin HEAD
       - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

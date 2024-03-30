@@ -1,0 +1,4 @@
+# un-ingnore dot files - eslint ignores them by default
+!.*.js
+
+dist/

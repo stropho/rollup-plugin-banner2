@@ -17,6 +17,7 @@
     "test:unit": "jest",
     "test:tdd": "npm run test:unit -- --no-cache --watch",
     "test": "npm run test:lint && npm run test:unit && kacl lint",
+    "test-cli": "rollup -i test/fixture/input-multi-first.js --sourcemap inline -f es -p './test/cli/add-one-line-banner-plugin.cjs.js'",
     "prepare": "husky install && npm run build",
     "preversion": "kacl prerelease",
     "prettier": "prettier '**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,html,yml,yaml}' --write",

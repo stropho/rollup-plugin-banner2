@@ -8,39 +8,56 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ## [1.2.3] - 2024-03-28
+
 ### Added
+
 - **Contributing** section in README
 - MIT `LICENSE` file
 
 ### Security
+
 - update devDependencies and resolve security vulnerabilities
 
 ## [1.2.2] - 2021-03-19
+
 ### Removed
+
 - `npm` version from `engines` field in package.json. At this moment, there isn't any specific case why a specific subset of `npm` versions is needed
 
 ## [1.2.1] - 2021-02-24
+
 ### Added
+
 - typescript definition file in published package
 
 ## [1.2.0] - 2021-02-24
+
 ### Added
+
 - support for banner as an object with `toString` method
 
 ## [1.1.0] - 2021-02-24
+
 ### Added
+
 - support newer node version
 
 ## [1.0.2] - 2020-12-13
+
 ### Changed
+
 - npm audit fix
 
 ## [1.0.1] - 2020-12-09
+
 ### Changed
+
 - publish only files in dist/
 
 ## 1.0.0 - 2020-03-19
+
 ### Added
+
 - Initial Implementation
 - Readme
 - sourcemap support

@@ -26,17 +26,19 @@ import banner2 from 'rollup-plugin-banner2'
 
 export default {
   plugins: [
-    banner2(() => `
+    banner2(
+      () => `
     /**
      * rollup-plugin-banner2
      */
-    `)
-  ]
+    `,
+    ),
+  ],
 }
-
 ```
 
 ## Comparison with `rollup-plugin-banner`
+
 - `banner2` supports sourcemaps
 - `banner2` supports adding different banner to different chunks based on `ChunkInfo` (for more info see https://rollupjs.org/ )
 - `banner2` does not support file path option that loads a file content and uses that as a banner. It should be easy enough to call `fs.readFileSync` yourself
@@ -50,7 +52,9 @@ The missing features could be added if someone actually needs them.
 ```ts
 banner2(resolveBanner, options)
 ```
+
 The `resolveBanner` function returns a banner as
+
 - `string`
 - stringifiable object, i.e. having `toString` method, such as `Buffer`
 - any falsy value for an empty banner
@@ -60,7 +64,7 @@ For more details see the [typescript definition](index.d.ts)
 
 ## Contributing
 
- - new PRs accepted :-)
- - always cover your changes by tests
- - always mention your changes in the [CHANGELOG.md](CHANGELOG.md)
- - always update [typescript definition](index.d.ts) file when relevant to your changes
+- new PRs accepted :-)
+- always cover your changes by tests
+- always mention your changes in the [CHANGELOG.md](CHANGELOG.md)
+- always update [typescript definition](index.d.ts) file when relevant to your changes

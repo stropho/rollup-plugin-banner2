@@ -14,9 +14,7 @@ describe('warnings', () => {
     const inputOptions = {
       onwarn: onwarnSpy,
       input: path.resolve(__dirname, './fixture/input-single.js'),
-      plugins: [
-        banner2(() => '// banner\n'),
-      ],
+      plugins: [banner2(() => '// banner\n')],
     }
     const outputOptions = {
       ...OUTPUT_OPTIONS,
@@ -36,9 +34,7 @@ describe('warnings', () => {
     const inputOptions = {
       onwarn: onwarnSpy,
       input: path.resolve(__dirname, './fixture/input-single.js'),
-      plugins: [
-        banner2(() => '// banner\n', { sourcemap: false }),
-      ],
+      plugins: [banner2(() => '// banner\n', { sourcemap: false })],
     }
     const outputOptions = {
       ...OUTPUT_OPTIONS,
@@ -57,9 +53,7 @@ describe('warnings', () => {
     const inputOptions = {
       onwarn: onwarnSpy,
       input: path.resolve(__dirname, './fixture/input-single.js'),
-      plugins: [
-        banner2(() => Buffer.from('// banner\n')),
-      ],
+      plugins: [banner2(() => Buffer.from('// banner\n'))],
     }
     const outputOptions = {
       ...OUTPUT_OPTIONS,
@@ -79,9 +73,7 @@ describe('output', () => {
     test('static banner', async () => {
       const inputOptions = {
         input: path.resolve(__dirname, './fixture/input-single.js'),
-        plugins: [
-          banner2(() => '// banner\n'),
-        ],
+        plugins: [banner2(() => '// banner\n')],
       }
       const outputOptions = {
         ...OUTPUT_OPTIONS,
@@ -101,9 +93,7 @@ describe('output', () => {
           first: path.resolve(__dirname, './fixture/input-multi-first.js'),
           second: path.resolve(__dirname, './fixture/input-multi-second.js'),
         },
-        plugins: [
-          banner2(() => '// banner\n'),
-        ],
+        plugins: [banner2(() => '// banner\n')],
       }
       const outputOptions = {
         ...OUTPUT_OPTIONS,
@@ -124,9 +114,7 @@ describe('output', () => {
           first: path.resolve(__dirname, './fixture/input-multi-first.js'),
           second: path.resolve(__dirname, './fixture/input-multi-second.js'),
         },
-        plugins: [
-          banner2((chunk) => `// ${chunk.name} banner\n`),
-        ],
+        plugins: [banner2((chunk) => `// ${chunk.name} banner\n`)],
       }
       const outputOptions = {
         ...OUTPUT_OPTIONS,

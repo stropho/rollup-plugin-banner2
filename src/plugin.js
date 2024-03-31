@@ -4,7 +4,7 @@ const defaultOptions = {
   sourcemap: true,
 }
 export default function banner2(resolveBanner, userOptions) {
-  const opts = { ...defaultOptions, ...userOptions || {} }
+  const opts = { ...defaultOptions, ...(userOptions || {}) }
 
   return {
     name: 'banner2',

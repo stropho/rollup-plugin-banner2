@@ -13,11 +13,14 @@ export default function banner2(resolveBanner, userOptions) {
     async renderChunk(code, chunk, options) {
       const banner = await resolveBanner(chunk, options)
       if (!banner) return { code, map: null }
-      const formatter = formatters[opts.formatter]
-      if (!opts.sourcemap) return formatter(banner) + code
+
+      const formatterByOption = formatters[opts.formatter]
+      const formattedBanner = formatterByOption(String(banner))
+
+      if (!opts.sourcemap) return formattedBanner + code
 
       const magicString = new MagicString(code)
-      magicString.prepend(formatter(String(banner)))
+      magicString.prepend(formattedBanner)
 
       return {
         code: magicString.toString(),

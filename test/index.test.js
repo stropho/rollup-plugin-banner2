@@ -101,6 +101,26 @@ describe('output', () => {
       expect(output.length).toBe(1)
       expect(output[0].code).toMatchSnapshot()
     })
+    test('banner as Buffer with formatter and disabled sourcemap', async () => {
+      const inputOptions = {
+        input: path.resolve(__dirname, './fixture/input-single.js'),
+        plugins: [
+          banner2(() => Buffer.from('banner'), {
+            formatter: 'wrapAsJsdoc',
+            sourcemap: false,
+          }),
+        ],
+      }
+      const outputOptions = {
+        ...OUTPUT_OPTIONS,
+      }
+
+      const bundle = await rollup(inputOptions)
+      const { output } = await bundle.generate(outputOptions)
+
+      expect(output.length).toBe(1)
+      expect(output[0].code).toMatchSnapshot()
+    })
   })
   describe('multi entry point', () => {
     test('static banner', async () => {

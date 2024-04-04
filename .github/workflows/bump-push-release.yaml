@@ -4,7 +4,7 @@ on:
     inputs:
       release-type:
         type: choice
-        options: 
+        options:
           - patch
           - minor
           - major
@@ -30,7 +30,7 @@ jobs:
           node-version: '20'
       - run: npm ci
       - run: npm run build
-      
+
       - name: Git configuration
         run: |
           git config --global user.email "github-action@users.noreply.github.com"
@@ -40,7 +40,7 @@ jobs:
       - name: Push bumped files
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # push tags, and HEAD to the tracked remote branch (=push the branch) 
+        # push tags, and HEAD to the tracked remote branch (=push the branch)
         run: git push --tags origin HEAD
       - run: npm publish
         env:

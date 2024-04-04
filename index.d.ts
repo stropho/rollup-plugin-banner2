@@ -1,8 +1,8 @@
-import * as rollup from 'rollup';
+import * as rollup from 'rollup'
 
-type Falsy = false | 0 | "" | null | undefined
+type Falsy = false | 0 | '' | null | undefined
 
-type Stringifiable = {toString: () => string}
+type Stringifiable = { toString: () => string }
 
 /**
  * The `resolveBanner` function returns a banner as
@@ -14,13 +14,13 @@ type Stringifiable = {toString: () => string}
 type ResolveBanner = (
   chunk: rollup.RenderedChunk,
   options: rollup.OutputOptions,
-) =>  string| Falsy | Stringifiable | Promise<string|Falsy|Stringifiable>
+) => string | Falsy | Stringifiable | Promise<string | Falsy | Stringifiable>
 
 type Options = {
-  sourcemap?: boolean,
+  sourcemap?: boolean
 }
 
-declare function banner2 (
+declare function banner2(
   resolveBanner: ResolveBanner,
   options?: Options,
 ): rollup.Plugin

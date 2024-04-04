@@ -47,3 +47,14 @@ const foo = 'foo';
 export { foo };
 "
 `;
+
+exports[`output single entry point static banner with formatter 1`] = `
+"/**
+ * banner
+ * 
+ */
+const foo = 'foo';
+
+export { foo };
+"
+`;

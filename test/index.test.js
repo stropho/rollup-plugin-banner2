@@ -46,6 +46,7 @@ describe('warnings', () => {
 
     expect(output.length).toBe(1)
     expect(onwarnSpy).toHaveBeenCalledTimes(1)
+    expect(output[0].map.mappings).toBeFalsy()
   })
 
   test('banner as stringifiable object', async () => {
@@ -74,6 +75,21 @@ describe('output', () => {
       const inputOptions = {
         input: path.resolve(__dirname, './fixture/input-single.js'),
         plugins: [banner2(() => '// banner\n')],
+      }
+      const outputOptions = {
+        ...OUTPUT_OPTIONS,
+      }
+
+      const bundle = await rollup(inputOptions)
+      const { output } = await bundle.generate(outputOptions)
+
+      expect(output.length).toBe(1)
+      expect(output[0].code).toMatchSnapshot()
+    })
+    test('static banner with formatter', async () => {
+      const inputOptions = {
+        input: path.resolve(__dirname, './fixture/input-single.js'),
+        plugins: [banner2(() => 'banner\n', { formatter: 'wrapAsJsdoc' })],
       }
       const outputOptions = {
         ...OUTPUT_OPTIONS,

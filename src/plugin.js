@@ -1,7 +1,9 @@
 import MagicString from 'magic-string'
+import { formatters } from './formatters'
 
 const defaultOptions = {
   sourcemap: true,
+  formatter: 'identity',
 }
 export default function banner2(resolveBanner, userOptions) {
   const opts = { ...defaultOptions, ...(userOptions || {}) }
@@ -11,10 +13,11 @@ export default function banner2(resolveBanner, userOptions) {
     async renderChunk(code, chunk, options) {
       const banner = await resolveBanner(chunk, options)
       if (!banner) return { code, map: null }
-      if (!opts.sourcemap) return banner + code
+      const formatter = formatters[opts.formatter]
+      if (!opts.sourcemap) return formatter(banner) + code
 
       const magicString = new MagicString(code)
-      magicString.prepend(String(banner))
+      magicString.prepend(formatter(String(banner)))
 
       return {
         code: magicString.toString(),

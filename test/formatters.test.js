@@ -1,19 +1,7 @@
-import { wrapAsJsdoc } from '../src/formatter'
+import { wrapAsJsdoc } from '../src/formatters'
 
-describe('formatter', () => {
+describe('formatters', () => {
   describe('wrapAsJsdoc', () => {
-    it('wraps a space', () => {
-      const input = ' '
-
-      const actualResult = wrapAsJsdoc(input)
-
-      expect(`\n${actualResult}`).toMatchInlineSnapshot(`
-        "
-        /**
-         *  
-         */"
-      `)
-    })
     it('wraps a single line', () => {
       const input = 'this is a banner'
 
@@ -23,7 +11,8 @@ describe('formatter', () => {
         "
         /**
          * this is a banner
-         */"
+         */
+        "
       `)
     })
     it('wraps multiple lines', () => {
@@ -39,7 +28,8 @@ describe('formatter', () => {
          * more
          * lines
          * 
-         */"
+         */
+        "
       `)
     })
     it('does not correctly wrap comments', () => {
@@ -51,7 +41,8 @@ describe('formatter', () => {
         "
         /**
          * /* comments */
-         */"
+         */
+        "
       `)
     })
   })

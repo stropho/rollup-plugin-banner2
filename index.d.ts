@@ -28,10 +28,10 @@ type Options = {
    *
    * @example
    * banner2(() => 'banner', { formatter: 'wrapAsJsdoc' })
-   * // outputs multiline comment:
-   * / **
-   * banner
-   * * /
+   * // outputs multiline comment similar to:
+   *  /**
+   *   * banner
+   *   * /
    */
   formatter?: FormatterOption
 }

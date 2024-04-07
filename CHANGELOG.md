@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- `formatter` option with value `docBlock` to automatically wrap banner string in `/** */` along with prepending every line with `*`
+- `formatter` option with value `docBlock` and `docBlockAndGap` to automatically wrap banner string in `/** */` along with prepending every line with `*`
 
 ## [1.2.3] - 2024-03-28
 

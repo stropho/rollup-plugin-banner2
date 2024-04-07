@@ -1,4 +1,4 @@
-import { docBlock } from '../src/formatters'
+import { docBlock, docBlockAndGap } from '../src/formatters'
 
 describe('formatters', () => {
   describe('docBlock', () => {
@@ -42,6 +42,22 @@ describe('formatters', () => {
         /**
          * /* comments */
          */
+        "
+      `)
+    })
+  })
+  describe('docBlockAndGap', () => {
+    it('wraps a single line', () => {
+      const input = 'this is a banner'
+
+      const actualResult = docBlockAndGap(input)
+
+      expect(`\n${actualResult}`).toMatchInlineSnapshot(`
+        "
+        /**
+         * this is a banner
+         */
+
         "
       `)
     })

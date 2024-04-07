@@ -86,10 +86,25 @@ describe('output', () => {
       expect(output.length).toBe(1)
       expect(output[0].code).toMatchSnapshot()
     })
-    test('static banner with formatter', async () => {
+    test('static banner with formatter docBlock', async () => {
       const inputOptions = {
         input: path.resolve(__dirname, './fixture/input-single.js'),
         plugins: [banner2(() => 'banner\n', { formatter: 'docBlock' })],
+      }
+      const outputOptions = {
+        ...OUTPUT_OPTIONS,
+      }
+
+      const bundle = await rollup(inputOptions)
+      const { output } = await bundle.generate(outputOptions)
+
+      expect(output.length).toBe(1)
+      expect(output[0].code).toMatchSnapshot()
+    })
+    test('static banner with formatter docBlockAndGap', async () => {
+      const inputOptions = {
+        input: path.resolve(__dirname, './fixture/input-single.js'),
+        plugins: [banner2(() => 'banner\n', { formatter: 'docBlockAndGap' })],
       }
       const outputOptions = {
         ...OUTPUT_OPTIONS,

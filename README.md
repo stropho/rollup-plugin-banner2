@@ -68,7 +68,8 @@ The `resolveBanner` function returns a banner as
 
 - **sourcemap** - enable/disable sourcemap. `true` by default
 - **formatter** - transform banner. No transform by default. Possible options:
-  - `'docBlock'` - i.e. `/**` & `*/`
+  - `'docBlock'` - i.e. `/**` & `*/\n`
+  - `'docBlockAndGap'` - i.e. `/**` & `*/\n\n`
 
 ## Contributing
 

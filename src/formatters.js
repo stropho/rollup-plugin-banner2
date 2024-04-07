@@ -7,4 +7,8 @@ export const docBlock = (str) => {
   return wrapped
 }
 
-export const formatters = { docBlock, identity }
+export const docBlockAndGap = (str) => {
+  return `${docBlock(str)}\n`
+}
+
+export const formatters = { docBlock, docBlockAndGap, identity }

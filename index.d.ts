@@ -16,7 +16,7 @@ type ResolveBanner = (
   options: rollup.OutputOptions,
 ) => string | Falsy | Stringifiable | Promise<string | Falsy | Stringifiable>
 
-type FormatterOption = 'docBlock'
+type FormatterOption = 'docBlock' | 'docBlockAndGap'
 type Options = {
   /**
    * Set `false` to explicitly disable sourcemaps.

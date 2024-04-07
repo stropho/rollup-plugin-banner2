@@ -9,6 +9,6 @@ export default [
   },
   {
     input,
-    plugins: [banner2(() => 'banner', { formatter: 'wrapAsJsdoc' })],
+    plugins: [banner2(() => 'banner', { formatter: 'docBlock' })],
   },
 ]

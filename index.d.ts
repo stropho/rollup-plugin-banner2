@@ -16,7 +16,7 @@ type ResolveBanner = (
   options: rollup.OutputOptions,
 ) => string | Falsy | Stringifiable | Promise<string | Falsy | Stringifiable>
 
-type FormatterOption = 'wrapAsJsdoc'
+type FormatterOption = 'docBlock'
 type Options = {
   /**
    * Set `false` to explicitly disable sourcemaps.
@@ -27,7 +27,7 @@ type Options = {
    * Transform the resolved banner string
    *
    * @example
-   * banner2(() => 'banner', { formatter: 'wrapAsJsdoc' })
+   * banner2(() => 'banner', { formatter: 'docBlock' })
    * // outputs multiline comment similar to:
    *  /**
    *   * banner

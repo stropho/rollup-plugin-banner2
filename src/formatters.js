@@ -1,9 +1,10 @@
 export const identity = (str) => str
-export const wrapAsJsdoc = (str) => {
+
+export const docBlock = (str) => {
   const lines = str.split('\n')
   const wrapped = ['/**', ...lines.map((l) => ` * ${l}`), ' */\n'].join('\n')
 
   return wrapped
 }
 
-export const formatters = { wrapAsJsdoc, identity }
+export const formatters = { docBlock, identity }

@@ -89,7 +89,7 @@ describe('output', () => {
     test('static banner with formatter', async () => {
       const inputOptions = {
         input: path.resolve(__dirname, './fixture/input-single.js'),
-        plugins: [banner2(() => 'banner\n', { formatter: 'wrapAsJsdoc' })],
+        plugins: [banner2(() => 'banner\n', { formatter: 'docBlock' })],
       }
       const outputOptions = {
         ...OUTPUT_OPTIONS,
@@ -106,7 +106,7 @@ describe('output', () => {
         input: path.resolve(__dirname, './fixture/input-single.js'),
         plugins: [
           banner2(() => Buffer.from('banner'), {
-            formatter: 'wrapAsJsdoc',
+            formatter: 'docBlock',
             sourcemap: false,
           }),
         ],

@@ -10,7 +10,7 @@ export default [
       { file: pkg.module, format: 'esm' },
     ],
     plugins: [
-      banner2(() => `${pkg.name}@${pkg.version}`, { formatter: 'wrapAsJsdoc' }),
+      banner2(() => `${pkg.name}@${pkg.version}`, { formatter: 'docBlock' }),
     ],
   },
 ]

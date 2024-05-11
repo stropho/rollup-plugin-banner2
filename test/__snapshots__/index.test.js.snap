@@ -40,8 +40,41 @@ export { second };
 "
 `;
 
+exports[`output single entry point banner as Buffer with formatter and disabled sourcemap 1`] = `
+"/**
+ * banner
+ */
+const foo = 'foo';
+
+export { foo };
+"
+`;
+
 exports[`output single entry point static banner 1`] = `
 "// banner
+const foo = 'foo';
+
+export { foo };
+"
+`;
+
+exports[`output single entry point static banner with formatter docBlock 1`] = `
+"/**
+ * banner
+ * 
+ */
+const foo = 'foo';
+
+export { foo };
+"
+`;
+
+exports[`output single entry point static banner with formatter docBlockAndGap 1`] = `
+"/**
+ * banner
+ * 
+ */
+
 const foo = 'foo';
 
 export { foo };

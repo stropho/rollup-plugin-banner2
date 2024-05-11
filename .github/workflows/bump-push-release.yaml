@@ -29,7 +29,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
           node-version: '20'
       - run: npm ci
-      - run: npm run build
 
       - name: Git configuration
         run: |
@@ -37,6 +36,8 @@ jobs:
           git config --global user.name "GitHub Actions"
 
       - run: npm version ${{ env.VERSION_BUMP_TYPE }}
+      # build after bump to reflect the version number
+      - run: npm run build
       - name: Push bumped files
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

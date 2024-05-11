@@ -43,7 +43,7 @@ export default {
 - `banner2` supports adding different banner to different chunks based on `ChunkInfo` (for more info see https://rollupjs.org/ )
 - `banner2` does not support file path option that loads a file content and uses that as a banner. It should be easy enough to call `fs.readFileSync` yourself
 - `banner2` does not support injecting values from `package.json` to banner via `<%= pkg.author %>` etc.
-- `banner2` does not add JS comments as a wrapper to every banner
+- `banner2` does not add JS comments as a wrapper to every banner automatically. You can explicitly use the option `{formatter: 'docBlock}`.
 
 The missing features could be added if someone actually needs them.
 
@@ -53,6 +53,10 @@ The missing features could be added if someone actually needs them.
 banner2(resolveBanner, options)
 ```
 
+See the [typescript definition](index.d.ts) for more info.
+
+### resolveBanner
+
 The `resolveBanner` function returns a banner as
 
 - `string`
@@ -60,11 +64,16 @@ The `resolveBanner` function returns a banner as
 - any falsy value for an empty banner
 - a `Promise` resolving any of the values mentioned above
 
-For more details see the [typescript definition](index.d.ts)
+### options
+
+- **sourcemap** - enable/disable sourcemap. `true` by default
+- **formatter** - transform banner. No transform by default. Possible options:
+  - `'docBlock'` - i.e. `/**` & `*/\n`
+  - `'docBlockAndGap'` - i.e. `/**` & `*/\n\n`
 
 ## Contributing
 
 - new PRs accepted :-)
 - always cover your changes by tests
 - always mention your changes in the [CHANGELOG.md](CHANGELOG.md)
-- always update [typescript definition](index.d.ts) file when relevant to your changes
+- always update [typescript definition](index.d.ts) file when relevant to your changes, and possibly the docs.

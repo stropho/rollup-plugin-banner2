@@ -1,13 +1,16 @@
 import pkg from './package.json'
+import banner2 from './src/index'
 
 export default [
   {
     input: 'src/index.js',
-    external: ['fs', 'path', ...Object.keys(pkg.dependencies || {})],
+    external: Object.keys(pkg.dependencies || {}),
     output: [
       { file: pkg.main, format: 'cjs' },
       { file: pkg.module, format: 'esm' },
     ],
-    plugins: [],
+    plugins: [
+      banner2(() => `${pkg.name}@${pkg.version}`, { formatter: 'docBlock' }),
+    ],
   },
 ]

@@ -46,6 +46,7 @@ describe('warnings', () => {
 
     expect(output.length).toBe(1)
     expect(onwarnSpy).toHaveBeenCalledTimes(1)
+    expect(output[0].map.mappings).toBeFalsy()
   })
 
   test('banner as stringifiable object', async () => {
@@ -74,6 +75,56 @@ describe('output', () => {
       const inputOptions = {
         input: path.resolve(__dirname, './fixture/input-single.js'),
         plugins: [banner2(() => '// banner\n')],
+      }
+      const outputOptions = {
+        ...OUTPUT_OPTIONS,
+      }
+
+      const bundle = await rollup(inputOptions)
+      const { output } = await bundle.generate(outputOptions)
+
+      expect(output.length).toBe(1)
+      expect(output[0].code).toMatchSnapshot()
+    })
+    test('static banner with formatter docBlock', async () => {
+      const inputOptions = {
+        input: path.resolve(__dirname, './fixture/input-single.js'),
+        plugins: [banner2(() => 'banner\n', { formatter: 'docBlock' })],
+      }
+      const outputOptions = {
+        ...OUTPUT_OPTIONS,
+      }
+
+      const bundle = await rollup(inputOptions)
+      const { output } = await bundle.generate(outputOptions)
+
+      expect(output.length).toBe(1)
+      expect(output[0].code).toMatchSnapshot()
+    })
+    test('static banner with formatter docBlockAndGap', async () => {
+      const inputOptions = {
+        input: path.resolve(__dirname, './fixture/input-single.js'),
+        plugins: [banner2(() => 'banner\n', { formatter: 'docBlockAndGap' })],
+      }
+      const outputOptions = {
+        ...OUTPUT_OPTIONS,
+      }
+
+      const bundle = await rollup(inputOptions)
+      const { output } = await bundle.generate(outputOptions)
+
+      expect(output.length).toBe(1)
+      expect(output[0].code).toMatchSnapshot()
+    })
+    test('banner as Buffer with formatter and disabled sourcemap', async () => {
+      const inputOptions = {
+        input: path.resolve(__dirname, './fixture/input-single.js'),
+        plugins: [
+          banner2(() => Buffer.from('banner'), {
+            formatter: 'docBlock',
+            sourcemap: false,
+          }),
+        ],
       }
       const outputOptions = {
         ...OUTPUT_OPTIONS,

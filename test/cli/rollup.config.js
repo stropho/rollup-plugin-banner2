@@ -1,4 +1,3 @@
-// const banner2 = require('../../dist/rollup-plugin-banner2.es')
 import banner2 from '../../dist/rollup-plugin-banner2.es'
 
 const input = 'test/fixture/input-multi-first.js'

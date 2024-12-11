@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Security
+
+- update transitive dependency `braces` to resolve security vulnerabilities
+
 ## [1.3.0] - 2024-05-11
 
 ### Added
